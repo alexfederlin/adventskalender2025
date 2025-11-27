@@ -1,11 +1,19 @@
 {
-    // Die Basisumgebung. Wir verwenden das offizielle Python 3 Image.
+    // Eindeutiger Name für die Codespace-Umgebung
+    "name": "Python Advent Calendar",
+    
+    // Die Basisumgebung. Wir verwenden das offizielle Python 3.12 Image.
     "image": "mcr.microsoft.com/devcontainers/python:3",
     
     "features": {
         // Optionale, aber nützliche Tools
         "ghcr.io/devcontainers/features/common-utils:2": {}
     },
+
+    // *** NEU: Entfernt den Git LFS Hook, um Push-Fehler zu vermeiden ***
+    // Wird ausgeführt, nachdem der Codespace gestartet wurde.
+    // 'rm -f' löscht die Datei, falls sie existiert.
+    "postCreateCommand": "rm -f .git/hooks/pre-push",
 
     // Notwendige VS Code Extensions für Python-Entwicklung
     "customizations": {
